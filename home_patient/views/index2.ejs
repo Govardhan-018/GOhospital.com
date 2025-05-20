@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="nav"></nav>
+    <div class="container">
+        <form action="/creat_apoint" method="post">
+            <label for="discription">Discription :
+                <input type="text" name="discription">
+            </label>
+            <label for="Doctor">Select Doctor:
+                <select name="doctor" required>
+                    <option value="">-- Select --</option>
+                    <% if (doctor) { for (let i=0; i < doctor.length; i++) { %>
+                        <option value="<%= doctor[i].id %>">
+                            <%= doctor[i].name %>
+                        </option>
+                        <% } } %>
+                </select>
+            </label>
+            <input type="hidden" name="id" value="<%=pid%>">
+            <button type="submit">Submmit</button>
+        </form>
+    </div>
+</body>
+
+</html>
