@@ -3,6 +3,7 @@ import axios from "axios"
 
 const user_authent_auth = "http://localhost:4000/authent"
 const user_authent_creat = "http://localhost:4000/creat"
+const home_patient="http://localhost:4040"
 const app = express()
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -22,7 +23,8 @@ app.post("/info", async (req, res) => {
         const response = await axios.post(`${user_authent_auth}?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
         console.log(response.data)
         if (response.data.code == 1) {
-            res.redirect(`http://google.com`)
+            const id=response.data.id
+            return res.redirect(`${home_patient}?id=${id}`);
         }
         else {
             res.redirect("/")
