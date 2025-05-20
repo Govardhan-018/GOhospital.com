@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/new_info" method="post">
+          <label for="name">Enter name here
+            <input type="text" name="name"></label>
+        <label for="gmail">Enter gmail here
+            <input type="text" name="gmail"></label>
+              <label for="phno">Enter phone number here
+            <input type="number" name="phno"></label>
+        <label>Role:
+            <select name="clint" required>
+                <option value="">-- Select --</option>
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+                <option value="admin">Admin</option>
+            </select>
+        </label>
+        <label for="pwd">Creat password
+            <input type="text" name="pwd">
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
