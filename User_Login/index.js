@@ -34,7 +34,7 @@ app.post("/creat", async (req, res) => {
         return res.status(201).json({ message: "User Created Successfully" })
     } catch (err) {
         console.log(err)
-        res.status(500).json({ message: "User Createation Failed " })
+        res.status(400).json({ message: "User Createation Failed " ,code:0 })
     }
 })
 app.post("/authent", async (req, res) => {
