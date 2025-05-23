@@ -15,7 +15,7 @@ app.get("/", async (req, res) => {
     res.render("index.ejs", {
         data: response.data,
         id: id
-    })
+    }) 
 })
 app.post("/new_apoint", async (req, res) => {
     const response = await axios.get(`${patient_data}/doctors`)

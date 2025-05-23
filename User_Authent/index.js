@@ -39,12 +39,14 @@ app.post("/creat", async (req, res) => {
 })
 app.post("/authent", async (req, res) => {
     const { gmail, pwd, clint } = req.query;
-
+    console.log(gmail)
+    console.log(pwd)
+    console.log(clint)
     if (!gmail || !pwd || !clint) {
         return res.status(400).json({ message: "Missing required fields" })
     }
 
-    const allowedTables = ["patient", "doctor", "admin"]
+    const allowedTables = ["patient", "doctor","admin"]
     if (!allowedTables.includes(clint)) {
         return res.status(400).json({ message: "Invalid client" })
     }
@@ -77,5 +79,5 @@ app.post("/authent", async (req, res) => {
 
 
 app.listen(4000, (req, res) => {
-    console.log("Server is listening....")
+    console.log("Server is listening....on port 4000")
 })

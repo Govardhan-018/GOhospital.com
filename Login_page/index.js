@@ -5,6 +5,7 @@ const user_authent_auth = "http://localhost:4000/authent"
 const user_authent_creat = "http://localhost:4000/creat"
 const home_patient="http://localhost:4040"
 const home_doc="http://localhost:3069"
+const home_admin="http://localhost:36969"
 const app = express()
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -20,6 +21,9 @@ app.post("/info", async (req, res) => {
     const gmail = req.body.gmail
     const pwd = req.body.pwd
     const clint = req.body.clint
+    console.log(gmail)
+    console.log(pwd)
+    console.log(clint)
     if(clint=="patient"){
     try {
         const response = await axios.post(`${user_authent_auth}?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
@@ -37,13 +41,30 @@ app.post("/info", async (req, res) => {
     }
 
 }
-  if(clint=="doctor"){
+  else if(clint=="doctor"){
     try {
         const response = await axios.post(`${user_authent_auth}?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
         console.log(response.data)
         if (response.data.code == 1) {
             const id=response.data.id
             return res.redirect(`${home_doc}?id=${id}`);
+        }
+        else {
+            res.redirect("/")
+        }
+    } catch (err) {
+        console.log(err)
+        res.status(500).send("Something went wrong")
+    }
+
+}
+else if(clint=="admin"){
+    try {
+        const response = await axios.post(`${user_authent_auth}?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
+        if (response.data.code == 1) {
+            const id=response.data.id
+            console.log(id)
+            return res.redirect(`${home_admin}?id=${id}`);
         }
         else {
             res.redirect("/")
@@ -80,5 +101,5 @@ app.post("/new_info", async (req, res) => {
 
 })
 app.listen(3535, (req, res) => {
-
+console.log("On port 3535")
 })
