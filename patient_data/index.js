@@ -22,6 +22,20 @@ app.post("/getinfo", async (req, res) => {
         res.status(401).json({ message: "Invalid patient id" })
     }
 })
+
+app.post("/getinfodoc", async (req, res) => {
+    console.log("Got a request")
+    const doctor_id = req.query.pid
+    const query1 = `SELECT * FROM patients_data WHERE doctor_id=${doctor_id}`
+    try {
+        const data = await db.query(query1)
+        console.log(data.rows)
+        res.status(200).json(data.rows)
+    } catch (err) {
+        console.log("Loked")
+        res.status(401).json({ message: "Invalid doctor id" })
+    }
+})
 app.post("/creat", async (req, res) => {
     const doctor_id = req.query.doctor
     const patient_id = req.query.pid
