@@ -9,32 +9,33 @@
 </head>
 
 <body>
-    <nav><h1>GO HOSPITAL</h1></nav>
+    <video autoplay muted loop id="bg-video">
+        <source src="videoplayback.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
     <div class="container">
-    <form action="/info" method="post">
-        <div class="mail adj">
-            <input type="text" class="text" name="gmail" placeholder="Enter gmail" pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" required>
+        <div class="image"></div>
+        <div class="login_conatainer">
+            <div class="page">
+               <div class="heading"> <h2>Login in to</h2><h2 class="colory"> Your Account</h2></div>
+              <div class="sig">  <p>Don't have any account? </p>
+                <form action="/creat_new" method="post"><button type="submit" class="signup">Sign Up</button></form>
+                </div>
+                <div class="input">
+                <form action="/info" method="post">
+                  <div class="io "><input type="text" placeholder="Enter your Email address" class="text hover-effect" name="gmail"></div> 
+                 <div class="io">   <input type="password" class="text hover-effect" placeholder="Password of account" name="pwd"></div> 
+                   <div class="io"> <select name="clint" class="text hover-effect">
+                        <option value="patient">Patient</option>
+                        <option value="doctor">Doctor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+            </div> 
+                    <div class="button hover-effect"><button type="submit" class="bt">Login</button></div>
+                </form>
+                </div>
             </div>
-            <div class="role adj">
-            <select name="clint" required>
-                <option value=""> Client </option>
-                <option value="patient">Patient</option>
-                <option value="doctor">Doctor</option>
-                <option value="admin">Admin</option>
-            </select>
         </div>
-        <div class="pwd adj">
-            <div class="op">
-            <input type="text" name="pwd" class="text" placeholder="Password">
-            </div>
-        <button type="submit" class="login">Login</button>
-    </form>
-    </div>
-    <div class="signup">
-    <form action="/creat_new" method="post">
-        <button type="submit" class="bt">SignUp</button>
-    </form>
-    </div>
     </div>
 </body>
 
