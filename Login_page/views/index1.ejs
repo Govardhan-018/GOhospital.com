@@ -5,28 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styl1.css">
 </head>
 
 <body>
+    <nav><h1>GO HOSPITAL</h1></nav>
+    <div class="container">
     <form action="/info" method="post">
-        <label for="gmail">Enter gmail here
-            <input type="text" name="gmail"></label>
-        <label>Role:
+        <div class="mail adj">
+            <input type="text" class="text" name="gmail" placeholder="Enter gmail" pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" required>
+            </div>
+            <div class="role adj">
             <select name="clint" required>
-                <option value="">-- Select --</option>
+                <option value=""> Client </option>
                 <option value="patient">Patient</option>
                 <option value="doctor">Doctor</option>
                 <option value="admin">Admin</option>
             </select>
-        </label>
-        <label for="pwd">Enter password
-            <input type="text" name="pwd">
-        </label>
-        <button type="submit">Submit</button>
+        </div>
+        <div class="pwd adj">
+            <div class="op">
+            <input type="text" name="pwd" class="text" placeholder="Password">
+            </div>
+        <button type="submit" class="login">Login</button>
     </form>
+    </div>
+    <div class="signup">
     <form action="/creat_new" method="post">
-        <button type="submit">Creat new user</button>
+        <button type="submit" class="bt">SignUp</button>
     </form>
+    </div>
+    </div>
 </body>
 
 </html>
