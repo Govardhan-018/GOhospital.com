@@ -1,29 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styl1.css">
 </head>
+
 <body>
-    <form action="/new_info" method="post">
-          <label for="name">Enter name here
-            <input type="text" name="name"></label>
-        <label for="gmail">Enter gmail here
-            <input type="text" name="gmail"></label>
-              <label for="phno">Enter phone number here
-            <input type="number" name="phno"></label>
-        <label>Role:
-            <select name="clint" required>
-                <option value="">-- Select --</option>
-                <option value="patient">Patient</option>
-                <option value="doctor">Doctor</option>
-            </select>
-        </label>
-        <label for="pwd">Creat password
-            <input type="text" name="pwd">
-        </label>
-        <button type="submit">Submit</button>
-    </form>
+    <video autoplay muted loop id="bg-video">
+        <source src="videoplayback.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="container">
+        <div class="image"></div>
+        <div class="login_conatainer">
+            <div class="page">
+                <div class="heading">
+                    <h2>Creat</h2>
+                    <h2 class="colory"> Your Account</h2>
+                </div>
+
+
+                <div class="input">
+                    <form action="/new_info" method="post">
+                        <div class="io "><input type="text" placeholder="Enter your Name" class="text hover-effect"
+                                name="name"></div>
+                        <div class="io "><input type="text" placeholder="Enter your Email address"
+                                class="text hover-effect" name="gmail"></div>
+                        <div class="io "><input type="text" placeholder="Enter your Contact Number"
+                                class="text hover-effect" pattern="[0-9]{10}" name="phno"></div>
+                        <div class="io"> <input type="password" class="text hover-effect" placeholder="Creat Password"
+                                name="pwd"></div>
+                        <div class="io"> <select name="clint" class="text hover-effect">
+                                <option value="patient">Patient</option>
+                                <option value="doctor">Doctor</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="button hover-effect"><button type="submit" class="bt">Creat</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+</html>
+</select>
+</label>
+<label for="pwd">Creat password
+    <input type="text" name="pwd">
+</label>
+<button type="submit">Submit</button>
+</form>
+</body>
+
 </html>

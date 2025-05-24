@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
-      font-family: "Raleway", sans-serif;
+    font-family: "Raleway", sans-serif;
     margin: 0cap;
     padding: 0cap;
 }
@@ -21,9 +22,11 @@ body {
     object-fit: cover;
     z-index: -1;
 }
-.heading{
+
+.heading {
     font-size: 35px;
 }
+
 .container {
     display: grid;
     height: 100vh;
@@ -41,7 +44,7 @@ body {
 .page {
     height: 70vh;
     width: 50%;
-    background-color:transparent;
+    background-color: transparent;
     color: white;
     display: flex;
     align-items: center;
@@ -79,7 +82,8 @@ input::placeholder {
 .io {
     margin-bottom: 5px;
 }
-.button{
+
+.button {
     width: 300px;
     height: 30px;
     display: flex;
@@ -87,24 +91,28 @@ input::placeholder {
     background-color: gray;
     border-radius: 5px;
 }
-.bt{
+
+.bt {
     background-color: transparent;
     border: 0cap;
     width: 300px;
     cursor: pointer;
 }
-.colory{
+
+.colory {
     color: rgb(0, 183, 255);
 }
+
 .hover-effect {
-  border-radius: 12px;
-  position: relative;
-  transition: all 0.4s ease;
-  z-index: 1;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.4s ease;
+    z-index: 1;
 }
 
 .hover-effect:hover {
-  border-color: #00f;
-  box-shadow: 0 0 15px 4px rgb(0, 183, 255); /* blue glow */
-  cursor: pointer;
+    border-color: #00f;
+    box-shadow: 0 0 15px 4px rgb(0, 183, 255);
+    /* blue glow */
+    cursor: pointer;
 }
