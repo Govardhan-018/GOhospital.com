@@ -1,7 +1,23 @@
 import express from "express"
 import axios from "axios"
+import os from "os"
 
-const patient_data = "http://localhost:3999"
+
+function getLocalIP() {
+    const interfaces = os.networkInterfaces()
+    for (const iface of Object.values(interfaces)) {
+        for (const config of iface) {
+            if (config.family === 'IPv4' && !config.internal) {
+                return config.address
+            }
+        }
+    }
+    return '127.0.0.1'
+}
+
+const ip = getLocalIP()
+
+
 const app = express()
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -11,14 +27,14 @@ app.use(express.urlencoded({ extended: true }))
 
 app.get("/", async (req, res) => {
     const id = req.query.id
-    const response = await axios.post(`${patient_data}/getinfo?pid=${id}`)
+    const response = await axios.post(`http://${ip}:3999/getinfo?pid=${id}`)
     res.render("index.ejs", {
         data: response.data,
         id: id
     })
 })
 app.post("/new_apoint", async (req, res) => {
-    const response = await axios.get(`${patient_data}/doctors`)
+    const response = await axios.get(`http://${ip}:3999/doctors`)
     const id = req.body.id
     res.render("index2.ejs", {
         pid: id,
@@ -29,7 +45,7 @@ app.post("/creat_apoint", async (req, res) => {
     const doctor_id = req.body.doctor
     const patient_id = req.body.id
     const discription = req.body.discription
-    const url = `${patient_data}/creat?pid=${patient_id}&doctor=${doctor_id}&discription=${discription}`
+    const url = `http://${ip}:3999/creat?pid=${patient_id}&doctor=${doctor_id}&discription=${discription}`
     try {
         await axios.post(url);
         return res.redirect(`/?id=${patient_id}`);

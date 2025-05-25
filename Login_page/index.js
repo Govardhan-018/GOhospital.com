@@ -1,11 +1,22 @@
 import express from "express"
 import axios from "axios"
+import os from "os"
 
-const user_authent_auth = "http://localhost:4000/authent"
-const user_authent_creat = "http://localhost:4000/creat"
-const home_patient = "http://localhost:3030"
-const home_doc = "http://localhost:3069"
-const home_admin = "http://localhost:36969"
+
+function getLocalIP() {
+  const interfaces = os.networkInterfaces()
+  for (const iface of Object.values(interfaces)) {
+    for (const config of iface) {
+      if (config.family === 'IPv4' && !config.internal) {
+        return config.address
+      }
+    }
+  }
+  return '127.0.0.1'
+}
+
+const ip = getLocalIP()
+
 const app = express()
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -26,11 +37,11 @@ app.post("/info", async (req, res) => {
     console.log(clint)
     if (clint == "patient") {
         try {
-            const response = await axios.post(`${user_authent_auth}?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
+            const response = await axios.post(`http://${ip}:4000/authent?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
             console.log(response.data)
             if (response.data.code == 1) {
                 const id = response.data.id
-                return res.redirect(`${home_patient}?id=${id}`);
+                return res.redirect(`http://${ip}:3030?id=${id}`);
             }
             else {
                 res.redirect("/")
@@ -43,11 +54,11 @@ app.post("/info", async (req, res) => {
     }
     else if (clint == "doctor") {
         try {
-            const response = await axios.post(`${user_authent_auth}?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
+            const response = await axios.post(`http://${ip}:4000/authent?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
             console.log(response.data)
             if (response.data.code == 1) {
                 const id = response.data.id
-                return res.redirect(`${home_doc}?id=${id}`);
+                return res.redirect(`http://${ip}:3069?id=${id}`);
             }
             else {
                 res.redirect("/")
@@ -60,11 +71,11 @@ app.post("/info", async (req, res) => {
     }
     else if (clint == "admin") {
         try {
-            const response = await axios.post(`${user_authent_auth}?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
+            const response = await axios.post(`http://${ip}:4000/authent?gmail=${gmail}&clint=${clint}&pwd=${pwd}`)
             if (response.data.code == 1) {
                 const id = response.data.id
                 console.log(id)
-                return res.redirect(`${home_admin}?id=${id}`);
+                return res.redirect(`http://${ip}:36969?id=${id}`);
             }
             else {
                 res.redirect("/")
@@ -87,7 +98,7 @@ app.post("/new_info", async (req, res) => {
     const name = req.body.name
     const phno = req.body.phno
     try {
-        const response = await axios.post(`${user_authent_creat}?gmail=${gmail}&clint=${clint}&pwd=${pwd}&name=${name}&phno=${phno}`)
+        const response = await axios.post(`http://${ip}:4000/creat?gmail=${gmail}&clint=${clint}&pwd=${pwd}&name=${name}&phno=${phno}`)
         console.log(response.data);
         if (response.data.code == 1) {
             res.redirect("/")
