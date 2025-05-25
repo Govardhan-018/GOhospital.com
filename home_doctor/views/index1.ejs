@@ -4,16 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <h1>Welcom Doctor</h1>
+    <video autoplay muted loop id="bg-video">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+     <div class="headings">
+            <h2>Welcom </h2>
+            <h2 class="theme">Doctor</h2>
+        </div>
+        <div class="container">
+        <div class="get">
+            <p>For clarifeing the appointments click below</p>
     <form action="/getapoint" method="post">
         <input type="hidden" value="<%= id %>" name="id">
-        <button type="submit">Get Apoint</button>
+        <button type="submit" class="bt">Get Apoint</button>
     </form>
+    </div>
+    <div class="close">
+        <p>For closing the appointment after consulting click below</p>
     <form action="/closeapoint" method="post">
            <input type="hidden" value="<%= id %>" name="id">
-        <button type="submit">close apoint</button>
+        <button type="submit" class="bt">Close Apoint</button>
     </form>
+    </div>
+    </div>
 </body>
 </html>

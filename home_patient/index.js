@@ -15,7 +15,7 @@ app.get("/", async (req, res) => {
     res.render("index.ejs", {
         data: response.data,
         id: id
-    }) 
+    })
 })
 app.post("/new_apoint", async (req, res) => {
     const response = await axios.get(`${patient_data}/doctors`)
@@ -38,6 +38,6 @@ app.post("/creat_apoint", async (req, res) => {
         return res.status(401).json({ message: "Something went wrong" });
     }
 })
-app.listen(4040, (req, res) => {
-
+app.listen(3030, (req, res) => {
+    console.log("Starting 3030")
 })

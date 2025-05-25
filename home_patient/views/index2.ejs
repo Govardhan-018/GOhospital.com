@@ -5,28 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
-    <nav class="nav"></nav>
+    <video autoplay muted loop id="bg-video">
+        <source src="backgroung.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
     <div class="container">
+        <div class="headings">
+            <h2>Creat new </h2>
+            <h2 class="theme">Appointmets</h2>
+        </div>
         <form action="/creat_apoint" method="post">
-            <label for="discription">Discription :
-                <input type="text" name="discription">
-            </label>
-            <label for="Doctor">Select Doctor:
+            <div class="inputs">
+            <div class="discription mrd">
+                <input type="text" class="dis" name="discription" placeholder="Discription" required>
+            </div>
+            <div class="doc mrd">
                 <select name="doctor" required>
-                    <option value="">-- Select --</option>
+                    <option value="">Select Doctor</option>
                     <% if (doctor) { for (let i=0; i < doctor.length; i++) { %>
                         <option value="<%= doctor[i].id %>">
                             <%= doctor[i].name %>
                         </option>
                         <% } } %>
                 </select>
-            </label>
+            </div>
             <input type="hidden" name="id" value="<%=pid%>">
-            <button type="submit">Submmit</button>
-        </form>
+            <div class="bt mrd"> <button type="submit">Submmit</button></div>
+    </div>
+    </form>
+
     </div>
 </body>
 

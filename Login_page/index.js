@@ -3,7 +3,7 @@ import axios from "axios"
 
 const user_authent_auth = "http://localhost:4000/authent"
 const user_authent_creat = "http://localhost:4000/creat"
-const home_patient = "http://localhost:4040"
+const home_patient = "http://localhost:3030"
 const home_doc = "http://localhost:3069"
 const home_admin = "http://localhost:36969"
 const app = express()
