@@ -24,7 +24,8 @@ body {
 }
 
 .heading {
-    font-size: 35px;
+    margin-top: 40px;
+    font-size: 30px;
 }
 
 .container {
@@ -44,24 +45,25 @@ body {
 .page {
     height: 70vh;
     width: 50%;
-    background-color: transparent;
+    background-color: rgba(128, 128, 128, 0.399);
     color: white;
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    border-radius: 15px;
 }
 
 .signup {
     border: 0cap;
     text-decoration: underline;
     background-color: transparent;
-    color: rgb(144, 144, 255);
+    color: rgb(0, 183, 255);
     cursor: pointer;
 }
 
 .sig {
-    display: flex;
+    display: flex;  
     flex-direction: row;
     gap: 10px;
 }
@@ -80,7 +82,7 @@ input::placeholder {
 }
 
 .io {
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .button {
@@ -88,7 +90,7 @@ input::placeholder {
     height: 30px;
     display: flex;
     justify-content: center;
-    background-color: gray;
+    background-color: rgb(0, 183, 255);
     border-radius: 5px;
 }
 
