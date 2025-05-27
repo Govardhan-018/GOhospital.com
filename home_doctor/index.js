@@ -32,7 +32,6 @@ app.get("/", async (req, res) => {
 })
 app.post("/getapoint", async (req, res) => {
     const id = req.body.id
-    console.log(id)
     const response = await axios.post(`$http://${ip}:3999/getinfodoc?pid=${id}&status=WAITING`)
     res.render("index2.ejs", {
         data: response.data,
